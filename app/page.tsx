@@ -12,7 +12,7 @@ export default function HomePage() {
             <a href="#gallery" className="hover:text-gold">Gallery</a>
             <a href="#about" className="hover:text-gold">About</a>
             <a href="#faq" className="hover:text-gold">FAQ</a>
-            <Link href="/book" className="hover:text-gold">Book</Link>
+            <Link href="/admin/login" className="hover:text-gold">Admin</Link>
           </nav>
           <Link href="/book" className="rounded-xl bg-gold px-4 py-2 text-sm font-bold text-black">
             Book Appointment

@@ -34,7 +34,10 @@ export default function AdminLoginPage() {
   return (
     <main className="container-shell py-16">
       <div className="mx-auto max-w-md card p-6">
-        <h1 className="text-2xl font-black">Admin Login</h1>
+        <div className="flex items-center justify-between gap-3">
+          <h1 className="text-2xl font-black">Admin Login</h1>
+          <a href="/" className="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300 hover:bg-zinc-800">Home</a>
+        </div>
         <p className="mt-2 text-sm text-zinc-400">Use your admin key to access reservations dashboard.</p>
 
         <form onSubmit={onSubmit} className="mt-5 space-y-3">
