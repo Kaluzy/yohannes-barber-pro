@@ -25,6 +25,17 @@ function servicePinClass(serviceName: string) {
   return "bg-zinc-400 ring-zinc-300";
 }
 
+function serviceDotClass(serviceName: string) {
+  const key = serviceName.toLowerCase();
+  if (key.includes("premium")) return "bg-purple-400";
+  if (key.includes("haircut + beard") || key.includes("combo")) return "bg-emerald-400";
+  if (key.includes("haircut")) return "bg-sky-400";
+  if (key.includes("beard")) return "bg-amber-400";
+  if (key.includes("kids")) return "bg-pink-400";
+  if (key.includes("line")) return "bg-orange-400";
+  return "bg-zinc-400";
+}
+
 export default function AdminPage() {
   const router = useRouter();
   const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
@@ -351,11 +362,12 @@ export default function AdminPage() {
           </div>
 
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-zinc-400">
-            <span className="inline-flex items-center gap-1"><i className="h-2.5 w-2.5 rounded-full bg-sky-400" /> Haircut</span>
-            <span className="inline-flex items-center gap-1"><i className="h-2.5 w-2.5 rounded-full bg-amber-400" /> Beard</span>
-            <span className="inline-flex items-center gap-1"><i className="h-2.5 w-2.5 rounded-full bg-emerald-400" /> Combo</span>
-            <span className="inline-flex items-center gap-1"><i className="h-2.5 w-2.5 rounded-full bg-purple-400" /> Premium</span>
-            <span className="inline-flex items-center gap-1"><i className="h-2.5 w-2.5 rounded-full bg-pink-400" /> Kids</span>
+            {services.map((s) => (
+              <span key={s.id} className="inline-flex items-center gap-1">
+                <i className={`h-2.5 w-2.5 rounded-full ${serviceDotClass(s.name)}`} />
+                {s.name}
+              </span>
+            ))}
           </div>
 
           <input
