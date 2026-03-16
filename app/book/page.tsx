@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { humanTime } from "@/lib/time";
 import type { Barber, Service } from "@/types/db";
@@ -100,6 +101,9 @@ export default function BookPage() {
 
   return (
     <main className="container-shell py-10">
+      <p className="mb-2 text-xs text-zinc-500">
+        <Link href="/" className="hover:text-zinc-300">Home</Link> <span className="mx-1">→</span> Book Appointment
+      </p>
       <h1 className="text-3xl font-black">Book Your Appointment</h1>
       <p className="mt-2 text-zinc-400">Pick your service, barber, date, and slot.</p>
 

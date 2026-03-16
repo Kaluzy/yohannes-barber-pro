@@ -8,9 +8,11 @@ export default function HomePage() {
         <div className="container-shell flex items-center justify-between py-3">
           <p className="text-lg font-extrabold tracking-wide">YOH CUTS STUDIO</p>
           <nav className="hidden gap-6 text-sm text-zinc-300 md:flex">
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a href="#faq">FAQ</a>
+            <a href="#services" className="hover:text-gold">Services</a>
+            <a href="#gallery" className="hover:text-gold">Gallery</a>
+            <a href="#about" className="hover:text-gold">About</a>
+            <a href="#faq" className="hover:text-gold">FAQ</a>
+            <Link href="/book" className="hover:text-gold">Book</Link>
           </nav>
           <Link href="/book" className="rounded-xl bg-gold px-4 py-2 text-sm font-bold text-black">
             Book Appointment
@@ -78,7 +80,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container-shell py-12">
+      <section id="gallery" className="container-shell py-12">
         <h2 className="section-title">Gallery</h2>
         <p className="mt-2 text-zinc-400">Fades, lineups, beard sculpting, and clean finish work.</p>
 
@@ -137,6 +139,7 @@ export default function HomePage() {
             <p className="font-bold">YOH Cuts Studio</p>
             <p className="text-sm text-zinc-400">{brand.address}</p>
             <p className="text-sm text-zinc-400">{brand.phone}</p>
+            <Link href="/admin/login" className="mt-2 inline-block text-xs text-zinc-500 hover:text-zinc-300">Owner Login</Link>
           </div>
           <div className="flex items-start gap-3 md:justify-end">
             <a href={brand.map} target="_blank" className="rounded-xl border border-zinc-700 px-4 py-2 text-sm">Open Map</a>

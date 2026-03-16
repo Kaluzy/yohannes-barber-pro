@@ -290,6 +290,13 @@ export default function AdminPage() {
         </button>
       </div>
 
+      <div className="mt-4 flex flex-wrap gap-2 text-xs">
+        <a href="#admin-reservations" className="rounded-full border border-zinc-700 px-3 py-1.5 hover:bg-zinc-800">Reservations</a>
+        <a href="#admin-traffic" className="rounded-full border border-zinc-700 px-3 py-1.5 hover:bg-zinc-800">Traffic</a>
+        <a href="#admin-barbers" className="rounded-full border border-zinc-700 px-3 py-1.5 hover:bg-zinc-800">Barbers</a>
+        <a href="#admin-block" className="rounded-full border border-zinc-700 px-3 py-1.5 hover:bg-zinc-800">Block Time</a>
+      </div>
+
       <div className="mt-5 grid gap-3 md:grid-cols-4 xl:grid-cols-8">
         <StatCard label="Today" value={stats.todayCount} />
         <StatCard label="Upcoming" value={stats.upcomingCount} />
@@ -302,7 +309,7 @@ export default function AdminPage() {
       </div>
 
       <div className="mt-3 grid gap-6 md:grid-cols-[1.4fr_1fr]">
-        <section className="card p-5">
+        <section id="admin-reservations" className="card p-5">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="text-xl font-bold">Reservations</h2>
             <div className="flex items-center gap-2">
@@ -440,7 +447,7 @@ export default function AdminPage() {
         </section>
 
         <section className="card p-5">
-          <h2 className="text-xl font-bold">Block Off Time</h2>
+          <h2 className="text-xl font-bold">Operations</h2>
           <label className="mt-3 block text-sm">Admin key
             <input
               value={adminKey}
@@ -463,7 +470,7 @@ export default function AdminPage() {
           {adminStatus === "unauthorized" ? <p className="mt-2 text-xs text-red-400">Wrong admin key.</p> : null}
           {adminStatus === "error" ? <p className="mt-2 text-xs text-red-400">Could not load reservations.</p> : null}
 
-          <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950/40 p-3">
+          <div id="admin-traffic" className="mt-4 rounded-xl border border-zinc-800 bg-zinc-950/40 p-3">
             <p className="text-xs font-semibold uppercase tracking-wide text-zinc-400">Top traffic paths (24h)</p>
             <div className="mt-2 space-y-1 text-xs text-zinc-300">
               {traffic.topPaths.length ? traffic.topPaths.map((t) => (
@@ -475,7 +482,7 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <form onSubmit={createBarber} className="mt-4 space-y-3 rounded-xl border border-zinc-800 p-3">
+          <form id="admin-barbers" onSubmit={createBarber} className="mt-4 space-y-3 rounded-xl border border-zinc-800 p-3">
             <p className="text-sm font-bold">Add Available Barber</p>
             <label className="block text-sm">Name
               <input value={newBarber.full_name} onChange={(e)=>setNewBarber({...newBarber, full_name: e.target.value})} className="mt-1 w-full rounded-xl border border-zinc-700 bg-zinc-950 px-3 py-2" />
@@ -490,7 +497,7 @@ export default function AdminPage() {
             <p className="text-xs text-zinc-500">New barber will appear in booking and admin lists.</p>
           </form>
 
-          <form onSubmit={blockTime} className="mt-4 space-y-3">
+          <form id="admin-block" onSubmit={blockTime} className="mt-4 space-y-3">
             <label className="block text-sm">Barber
               <select value={blockForm.barber_id} onChange={(e)=>setBlockForm({...blockForm, barber_id: e.target.value})} className="mt-1 w-full rounded-xl border border-zinc-700 bg-zinc-950 px-3 py-2">
                 {barbers.map((b)=><option key={b.id} value={b.id}>{b.full_name}</option>)}

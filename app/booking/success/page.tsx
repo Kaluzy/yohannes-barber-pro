@@ -13,6 +13,10 @@ export default async function BookingSuccess({
 
   return (
     <main className="container-shell py-16">
+      <p className="mb-3 text-center text-xs text-zinc-500">
+        <Link href="/" className="hover:text-zinc-300">Home</Link> <span className="mx-1">→</span>
+        <Link href="/book" className="hover:text-zinc-300">Book</Link> <span className="mx-1">→</span> Confirmed
+      </p>
       <div className="card mx-auto max-w-xl p-8 text-center">
         <p className="text-sm font-semibold tracking-[0.2em] text-gold">BOOKING CONFIRMED</p>
         <h1 className="mt-2 text-3xl font-black">You’re locked in.</h1>
