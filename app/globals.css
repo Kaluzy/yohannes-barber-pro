@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-ink text-zinc-100 antialiased;
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-6xl px-4 md:px-6;
+}
+
+.card {
+  @apply rounded-2xl border border-zinc-800 bg-charcoal;
+}
+
+.section-title {
+  @apply text-2xl font-bold tracking-tight md:text-4xl;
+}
+
+.gallery-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+}
+
+.gallery-track {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  animation: gallery-scroll 36s linear infinite;
+}
+
+.gallery-marquee:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+@keyframes gallery-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
